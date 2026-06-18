@@ -3,49 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Shop - VPN & Proxy</title>
+    <title>VaultForge // Premium Subscriptions</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- মেনুবার -->
+    <div class="top-announcement-bar">
+        <div class="ticker-wrap">
+            <div class="ticker-item">⚡ LIMITED OFFER: Secure your digital privacy today with our elite-tier premium nodes. Support active 24/7 via official channels.</div>
+        </div>
+        <div class="header-socials">
+            <a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://youtube.com/yourchannel" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://wa.me/yournumber" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://t.me/yourusername" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+        </div>
+    </div>
+
     <header class="navbar">
-        <div class="logo"><i class="fa-solid fa-shield-halved"></i> Premium<span>Shop</span></div>
+        <div class="logo-area">
+            <i class="fa-solid fa-bolt-lightning"></i> Forge<span>Subs</span>
+        </div>
         <nav>
-            <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#vpn-section">VPN</a></li>
-                <li><a href="#proxy-section">IP Proxy</a></li>
-                <li><a href="#other-section">Other Subscription</a></li>
-                <li><a href="#contact-section">Contact</a></li>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-item active">Home</a></li>
+                <li><a href="#vpn-catalog" class="nav-item">VPN</a></li>
+                <li><a href="#proxy-catalog" class="nav-item">IP Proxy</a></li>
+                <li><a href="#subs-catalog" class="nav-item">Other Subscription</a></li>
+                <li><a href="#support-catalog" class="nav-item">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="container">
-        <h1 class="main-title">Premium Services</h1>
-        <p class="subtitle">Get high-quality secure connection instantly with our top-tier network.</p>
-        
-        <!-- VPN সেকশন (২টি সারির জন্য ডাটা অনুযায়ী অটো সাজবে) -->
-        <h2 class="section-title" id="vpn-section"><i class="fa-solid fa-shield-vpn"></i> VPN Services</h2>
-        <div class="products-grid" id="vpn-container"></div>
+    <main class="main-wrapper">
+        <section class="catalog-section" id="vpn-catalog">
+            <h2 class="category-heading"><span>//</span> Elite VPN Networks</h2>
+            <div class="asymmetric-grid" id="vpn-box"></div>
+        </section>
 
-        <!-- IP Proxy সেকশন -->
-        <h2 class="section-title" id="proxy-section"><i class="fa-solid fa-network-wired"></i> IP Proxy Services</h2>
-        <div class="products-grid" id="proxy-container"></div>
+        <section class="catalog-section" id="proxy-catalog">
+            <h2 class="category-heading"><span>//</span> Residential IP Proxies</h2>
+            <div class="asymmetric-grid" id="proxy-box"></div>
+        </section>
 
-        <!-- Other Subscription সেকশন -->
-        <h2 class="section-title" id="other-section"><i class="fa-solid fa-cube"></i> Other Subscriptions</h2>
-        <div class="products-grid" id="other-container"></div>
+        <section class="catalog-section" id="subs-catalog">
+            <h2 class="category-heading"><span>//</span> Entertainment & Creative Hubs</h2>
+            <div class="asymmetric-grid" id="subs-box"></div>
+        </section>
 
-        <!-- Contact সেকশন (মেনুবার ক্লিকের জন্য) -->
-        <h2 class="section-title" id="contact-section"><i class="fa-solid fa-headset"></i> Contact Us</h2>
-        <div class="contact-box">
-            <p>Need custom requirements or help? Contact our automated official bot directly.</p>
-            <a href="https://t.me/your_telegram_bot" target="_blank" class="buy-btn" style="max-width: 200px; margin: 0 auto;"><i class="fa-brands fa-telegram"></i> Message Bot</a>
-        </div>
-    </div>
+        <section class="catalog-section" id="support-catalog">
+            <div class="terminal-contact">
+                <div class="terminal-header">
+                    <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                    <span class="terminal-title">secure_comm.sh</span>
+                </div>
+                <div class="terminal-body">
+                    <p class="logs">>> INITIALIZING SECURE BOT CONNECTION...</p>
+                    <p class="ready">>> STATUS: CHANNELS OPTIMIZED AND READY.</p>
+                    <a href="https://t.me/your_telegram_bot" target="_blank" class="terminal-btn">
+                        <i class="fa-brands fa-telegram"></i> Establish Telegram Comm
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <script src="products.js"></script>
     <script src="script.js"></script>
