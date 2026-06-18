@@ -1,28 +1,35 @@
-const vpnContainer = document.getElementById('vpn-container');
-const proxyContainer = document.getElementById('proxy-container');
-const otherContainer = document.getElementById('other-container');
+const vpnBox = document.getElementById('vpn-box');
+const proxyBox = document.getElementById('proxy-box');
+const subsBox = document.getElementById('subs-box');
 
-products.forEach(product => {
+products.forEach((product, index) => {
     const card = document.createElement('div');
-    card.className = 'product-card';
+    card.className = 'custom-product-card';
+    // আ্যনিমেশন লেট করার জন্য staggered delay ইফেক্ট
+    card.style.animationDelay = `${index * 0.08}s`;
+    
     card.innerHTML = `
-        <div class="product-icon">
-            <i class="${product.icon || 'fa-solid fa-vault'}"></i>
+        <div class="card-visual-header">
+            <img src="${product.imageUrl}" alt="${product.name}" class="card-cover-img" loading="lazy">
+            <div class="card-glitch-overlay"></div>
         </div>
-        <h3>${product.name}</h3>
-        <p class="price">${product.price}</p>
-        <p class="validity">Valid: ${product.valid}</p>
-        <a href="${product.telegramLink}" target="_blank" class="buy-btn">
-            <i class="fa-brands fa-telegram"></i> Buy Now
-        </a>
+        <div class="card-details-area">
+            <h3 class="card-product-title">${product.name}</h3>
+            <div class="card-meta-metrics">
+                <span class="card-price-tag">${product.price}</span>
+                <span class="card-duration">${product.valid}</span>
+            </div>
+            <a href="${product.telegramLink}" target="_blank" class="card-action-trigger">
+                <i class="fa-brands fa-telegram"></i> Acquire Access
+            </a>
+        </div>
     `;
 
-    // ক্যাটাগরি চেক করে সঠিক বক্সে ডাটা পাঠানো হচ্ছে
     if (product.category === 'vpn') {
-        vpnContainer.appendChild(card);
+        vpnBox.appendChild(card);
     } else if (product.category === 'proxy') {
-        proxyContainer.appendChild(card);
+        proxyBox.appendChild(card);
     } else if (product.category === 'other') {
-        otherContainer.appendChild(card);
+        subsBox.appendChild(card);
     }
 });
