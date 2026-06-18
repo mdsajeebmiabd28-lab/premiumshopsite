@@ -1,13 +1,16 @@
-/* গ্লোবাল ডার্ক স্টাইল */
+html {
+    scroll-behavior: smooth; /* মেনু ক্লিকে স্মুথ স্ক্রল হবে */
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0b0f19; /* ডিপ ডার্ক ব্যাকগ্রাউন্ড */
+    background-color: #0b0f19;
     color: #e2e8f0;
     margin: 0;
     padding: 0;
 }
 
-/* প্রিমিয়াম নেভিগেশন বার */
+/* নেভিগেশন বার */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -19,65 +22,52 @@ body {
     top: 0;
     z-index: 1000;
 }
-.logo {
-    font-size: 22px;
-    font-weight: bold;
-    color: #fff;
-}
-.logo i {
-    color: #38bdf8; /* লোগো আইকন কালার */
-    margin-right: 8px;
-}
+.logo { font-size: 22px; font-weight: bold; color: #fff; }
+.logo i { color: #38bdf8; margin-right: 8px; }
 .logo span { color: #38bdf8; }
-.navbar ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-}
-.navbar a {
-    color: #9ca3af;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
-}
-.navbar a:hover, .navbar a.active {
-    color: #38bdf8;
-}
+.navbar ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+.navbar a { color: #9ca3af; text-decoration: none; font-weight: 500; transition: 0.3s; }
+.navbar a:hover, .navbar a.active { color: #38bdf8; }
 
-/* কন্টেইনার এবং টাইটেল */
+/* কন্টেইনার */
 .container {
-    max-width: 1200px;
+    max-width: 1400px; /* স্ক্রিন বডি চওড়া করা হলো */
     margin: 0 auto;
-    padding: 60px 20px;
-    text-align: center;
+    padding: 40px 20px;
 }
-.main-title {
-    font-size: 36px;
+.main-title { font-size: 36px; text-align: center; color: #fff; margin-bottom: 5px; }
+.subtitle { text-align: center; color: #9ca3af; margin-bottom: 40px; }
+
+/* সেকশন টাইটেল */
+.section-title {
+    font-size: 24px;
     color: #fff;
-    margin-bottom: 10px;
+    text-align: left;
+    margin: 40px 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #1f2937;
 }
-.subtitle {
-    color: #9ca3af;
-    margin-bottom: 50px;
-}
+.section-title i { color: #38bdf8; margin-right: 10px; }
 
-/* প্রোডাক্ট গ্রিড লেআউট */
+/* প্রোডাক্ট গ্রিড (এক সারিতে ৫টা কার্ড রাখার লজিক) */
 .products-grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* ফিক্সড ১ সারিতে ৫টা কার্ড */
+    gap: 20px;
+    margin-bottom: 40px;
 }
 
-/* ডার্ক প্রিমিয়াম কার্ড ডিজাইন */
+/* রেসপনসিভ মোবাইল বা ট্যাবের জন্য অটো ছোট হবে */
+@media (max-width: 1200px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .products-grid { grid-template-columns: repeat(1, 1fr); } }
+
+/* ছোট প্রিমিয়াম কার্ড ডিজাইন */
 .product-card {
     background: #111827;
     border: 1px solid #1f2937;
-    padding: 30px;
-    border-radius: 16px;
-    width: 260px;
+    padding: 20px 15px; /* প্যাডিং কমানো হয়েছে */
+    border-radius: 12px;
     transition: all 0.3s ease;
     text-align: center;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
@@ -85,52 +75,37 @@ body {
 .product-card:hover {
     transform: translateY(-5px);
     border-color: #38bdf8;
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
 }
 
-/* ভিপিএন লোগো/আইকন স্টাইল */
-.product-icon {
-    font-size: 45px;
-    color: #38bdf8;
-    margin-bottom: 15px;
-}
+.product-icon { font-size: 35px; color: #38bdf8; margin-bottom: 10px; }
+.product-card h3 { font-size: 16px; margin: 10px 0; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.price { font-size: 22px; font-weight: bold; color: #10b981; margin: 5px 0; }
+.validity { color: #9ca3af; font-size: 13px; margin-bottom: 15px; }
 
-.product-card h3 {
-    font-size: 20px;
-    margin: 10px 0;
-    color: #fff;
-}
-
-/* ডিরেক্ট প্রাইস স্টাইল */
-.price {
-    font-size: 28px;
-    font-weight: bold;
-    color: #10b981; /* গ্রিন ডিরেক্ট প্রাইস */
-    margin: 10px 0 5px 0;
-}
-
-/* ভ্যালিডিটি টেক্সট */
-.validity {
-    color: #9ca3af;
-    font-size: 14px;
-    margin-bottom: 20px;
-}
-
-/* টেলিগ্রাম বাই বাটন */
+/* বাই বাটন */
 .buy-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    background: #24a1de; /* টেলিগ্রাম ব্লু */
+    gap: 6px;
+    background: #24a1de;
     color: white;
-    padding: 12px 20px;
+    padding: 10px 15px;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 6px;
     font-weight: bold;
+    font-size: 14px;
     transition: 0.3s;
 }
-.buy-btn:hover {
-    background: #1a80b0;
-    box-shadow: 0 0 15px rgba(36, 161, 222, 0.4);
+.buy-btn:hover { background: #1a80b0; }
+
+/* কন্টাক্ট বক্স */
+.contact-box {
+    background: #111827;
+    border: 1px solid #1f2937;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 20px;
 }
