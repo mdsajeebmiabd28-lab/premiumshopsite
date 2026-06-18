@@ -1,37 +1,35 @@
-/* লাক্সারি হাই-টেক ডার্ক প্যালেট */
 :root {
-    --bg-base: #070a12;
-    --bg-surface: #0f1524;
-    --bg-surface-elevated: #161f33;
-    --accent-cyan: #22d3ee;
-    --accent-emerald: #10b981;
-    --text-primary: #f8fafc;
-    --text-muted: #94a3b8;
-    --border-subtle: #1e293b;
+    --bg-main: #0b0f19;
+    --bg-card: #111827;
+    --accent-blue: #38bdf8;
+    --accent-green: #10b981;
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --border-color: #1f2937;
 }
 
 html {
     scroll-behavior: smooth;
-    background-color: var(--bg-base);
+    background-color: var(--bg-main);
 }
 
 body {
-    font-family: 'Courier New', Courier, monospace; /* ইউনিক টাইপোগ্রাফি ভাইব */
-    color: var(--text-primary);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* একদম ক্লিয়ার মডার্ন ফন্ট */
+    color: var(--text-main);
     margin: 0;
     padding: 0;
     overflow-x: hidden;
 }
 
-/* নোটিশ বার */
+/* নোটিশ বার (image_9d3e69.jpg এর ওপরের অংশ ফিক্স করার জন্য) */
 .top-announcement-bar {
-    background: #000;
-    border-bottom: 1px solid var(--border-subtle);
+    background: #000000;
+    border-bottom: 1px solid var(--border-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 4%;
-    font-size: 12px;
+    padding: 10px 5%;
+    font-size: 13px;
 }
 .ticker-wrap {
     flex: 1;
@@ -41,8 +39,9 @@ body {
     display: inline-block;
     white-space: nowrap;
     padding-left: 100%;
-    animation: runTicker 30s linear infinite;
-    color: var(--accent-cyan);
+    animation: runTicker 25s linear infinite;
+    color: #4ade80; /* হালকা সবুজ ভাইব্রেন্ট লুক */
+    font-weight: 500;
 }
 @keyframes runTicker {
     0% { transform: translate3d(0, 0, 0); }
@@ -50,199 +49,196 @@ body {
 }
 .header-socials {
     display: flex;
-    gap: 18px;
+    gap: 15px;
 }
 .header-socials a {
     color: var(--text-muted);
-    transition: color 0.20s ease;
+    font-size: 14px;
+    transition: 0.3s;
 }
 .header-socials a:hover {
-    color: var(--accent-cyan);
+    color: var(--accent-blue);
 }
 
-/* নেভিগেশন */
+/* নেভিগেশন বার */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(15, 21, 36, 0.85);
-    backdrop-filter: blur(12px);
-    padding: 20px 5%;
-    border-bottom: 1px solid var(--border-subtle);
+    background: var(--bg-card);
+    padding: 18px 5%;
+    border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-index: 1000;
 }
 .logo-area {
-    font-size: 20px;
-    font-weight: bold;
-    letter-spacing: 1px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
 }
-.logo-area i { color: var(--accent-cyan); margin-right: 6px; }
-.logo-area span { color: var(--accent-cyan); }
+.logo-area i { color: var(--accent-blue); margin-right: 8px; }
+.logo-area span { color: var(--accent-blue); }
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 28px;
+    gap: 25px;
     margin: 0;
     padding: 0;
 }
 .nav-links a {
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 14px;
-    transition: 0.25s;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.3s;
 }
 .nav-links a:hover, .nav-links a.active {
-    color: var(--accent-cyan);
-    text-shadow: 0 0 8px rgba(34, 211, 238, 0.4);
+    color: var(--accent-blue);
 }
 
-/* মেইন লেআউট */
+/* লেআউট কন্টেইনার */
 .main-wrapper {
-    max-width: 1500px;
+    max-width: 1440px;
     margin: 0 auto;
-    padding: 40px 3%;
+    padding: 30px 4%;
 }
 .category-heading {
-    font-size: 22px;
-    letter-spacing: 1px;
-    margin: 60px 0 30px 0;
-    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 50px 0 25px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
 }
-.category-heading span { color: var(--accent-cyan); }
+.category-heading span { color: var(--accent-blue); margin-right: 5px; }
 
-/* ১ সারিতে ৫টি ফিক্সড কার্ড এবং রেসপনসিভ গ্রিড */
+/* ১ সারিতে ৫টি কার্ড গ্রিড */
 .asymmetric-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 24px;
+    gap: 20px;
 }
-@media (max-width: 1300px) { .asymmetric-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 850px) { .asymmetric-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 500px) { .asymmetric-grid { grid-template-columns: repeat(1, 1fr); } }
+@media (max-width: 1400px) { .asymmetric-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 1100px) { .asymmetric-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px)  { .asymmetric-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px)  { .asymmetric-grid { grid-template-columns: repeat(1, 1fr); } }
 
-/* প্রিমিয়াম কাস্টম ইমেজ কার্ড */
+/* প্রিমিয়াম প্রোডাক্ট কার্ড */
 .custom-product-card {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: 4px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
     overflow: hidden;
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s;
-    opacity: 0;
-    animation: fadeInUp 0.6s forwards;
-}
-@keyframes fadeInUp {
-    to { opacity: 1; transform: translateY(0); }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
 }
 .custom-product-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--accent-cyan);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    transform: translateY(-5px);
+    border-color: var(--accent-blue);
+    box-shadow: 0 10px 20px rgba(56, 189, 248, 0.15);
 }
 .card-visual-header {
-    position: relative;
     width: 100%;
-    height: 180px;
-    background: #000;
+    height: 160px;
+    background: #1f2937;
+    overflow: hidden;
 }
 .card-cover-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(20%);
-    transition: transform 0.4s;
+    transition: transform 0.3s;
 }
 .custom-product-card:hover .card-cover-img {
-    transform: scale(1.05);
+    transform: scale(1.04);
 }
 
-/* কার্ড ডিটেইলস */
+/* কার্ডের ভেতরের লেখা ও প্রাইস */
 .card-details-area {
-    padding: 20px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 .card-product-title {
     font-size: 16px;
-    margin: 0 0 15px 0;
-    color: var(--text-primary);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 12px 0;
+    line-height: 1.4;
 }
 .card-meta-metrics {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
+    margin-top: auto; /* এগুলোকে বাটনের ঠিক ওপরে পুশ করবে */
 }
 .card-price-tag {
     font-size: 20px;
-    font-weight: bold;
-    color: var(--accent-emerald);
+    font-weight: 700;
+    color: var(--accent-green);
 }
 .card-duration {
-    font-size: 11px;
+    font-size: 12px;
     color: var(--text-muted);
+    background: #1f2937;
+    padding: 3px 8px;
+    border-radius: 4px;
 }
 
-/* বাটন */
+/* টেলিগ্রাম বাটন - এবার পুরোপুরি দেখা যাবে ও সুন্দর লাগবে */
 .card-action-trigger {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background: transparent;
-    border: 1px solid var(--accent-cyan);
-    color: var(--accent-cyan);
-    padding: 12px;
+    background: #0088cc; /* ওরিজিনাল টেলিগ্রাম ব্লু */
+    color: #ffffff;
+    padding: 11px;
     text-decoration: none;
-    font-size: 13px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: 0.25s;
-    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: background 0.2s;
+    border: none;
 }
 .card-action-trigger:hover {
-    background: var(--accent-cyan);
-    color: #000;
-    box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
+    background: #0077b3;
+    box-shadow: 0 4px 12px rgba(0, 136, 204, 0.3);
 }
 
-/* টার্মিনাল স্টাইল কন্টাক্ট বক্স */
+/* কন্টাক্ট বক্স */
 .terminal-contact {
-    background: #005;
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    max-width: 600px;
-    margin: 60px auto 0 auto;
-    border-radius: 6px;
-    overflow: hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    max-width: 550px;
+    margin: 60px auto 20px auto;
+    border-radius: 12px;
+    text-align: center;
+    padding: 30px 20px;
 }
-.terminal-header {
-    background: #0a0e1a;
-    padding: 12px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+.terminal-body p {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 20px;
 }
-.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-.dot.red { background: #ef4444; }
-.dot.yellow { background: #f59e0b; }
-.dot.green { background: #10b981; }
-.terminal-title { font-size: 12px; color: var(--text-muted); margin-left: 10px; }
-.terminal-body { padding: 30px; text-align: left; }
-.terminal-body p { margin: 0 0 10px 0; font-size: 13px; }
-.logs { color: var(--text-muted); }
-.ready { color: var(--accent-emerald); margin-bottom: 25px !important; }
 .terminal-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #24a1de;
-    color: #fff;
+    background: #0088cc;
+    color: white;
     padding: 12px 24px;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
-    border-radius: 4px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+.terminal-btn:hover {
+    background: #0077b3;
 }
