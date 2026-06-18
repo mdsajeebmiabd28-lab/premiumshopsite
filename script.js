@@ -1,4 +1,6 @@
-const container = document.getElementById('products-container');
+const vpnContainer = document.getElementById('vpn-container');
+const proxyContainer = document.getElementById('proxy-container');
+const otherContainer = document.getElementById('other-container');
 
 products.forEach(product => {
     const card = document.createElement('div');
@@ -14,5 +16,13 @@ products.forEach(product => {
             <i class="fa-brands fa-telegram"></i> Buy Now
         </a>
     `;
-    container.appendChild(card);
+
+    // ক্যাটাগরি চেক করে সঠিক বক্সে ডাটা পাঠানো হচ্ছে
+    if (product.category === 'vpn') {
+        vpnContainer.appendChild(card);
+    } else if (product.category === 'proxy') {
+        proxyContainer.appendChild(card);
+    } else if (product.category === 'other') {
+        otherContainer.appendChild(card);
+    }
 });
