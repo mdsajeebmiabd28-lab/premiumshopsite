@@ -5,15 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premium Shop - VPN & Proxy</title>
     <link rel="stylesheet" href="style.css">
+    <!-- লোগো আইকনের জন্য FontAwesome (ফ্রি) অ্যাড করা হলো -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
+    <!-- ৫টি আইটেমের ডার্ক মেনুবার -->
+    <header class="navbar">
+        <div class="logo"><i class="fa-solid fa-shield-halved"></i> Premium<span>Shop</span></div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#vpn">VPN</a></li>
+                <li><a href="#proxy">IP Proxy</a></li>
+                <li><a href="#other">Other Subscription</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <div class="container">
-        <h1>Premium VPN & IP Proxy Services</h1>
-        <p class="subtitle">Get high-quality secure connection instantly</p>
+        <h1 class="main-title">Premium Services</h1>
+        <p class="subtitle">Get high-quality secure connection instantly with our top-tier network.</p>
         
-        <div class="products-grid" id="products-container">
-            <!-- প্রোডাক্টগুলো কোড থেকে অটোমেটিক এখানে চলে আসবে -->
-        </div>
+        <!-- প্রোডাক্ট গ্রিড (এখানেই সব অটোমেটিক শো করবে) -->
+        <div class="products-grid" id="products-container"></div>
     </div>
 
     <script src="products.js"></script>
